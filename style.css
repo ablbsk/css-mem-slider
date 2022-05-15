@@ -15,7 +15,8 @@
 }
 
 html {
-  font-size: 10px;
+  min-width: 32rem;
+  font-size: 10px; /* for ease of use rem units */
   font-family: Verdana, sans-serif;
 }
 
@@ -56,7 +57,7 @@ main {
 /* ------ Slider Footer ------ */
 
 .slider__footer {
-  padding: 1rem 0;
+  padding: 2rem 0;
   display: flex;
   justify-content: space-between;
   overflow: hidden;
@@ -165,4 +166,24 @@ main {
 
 #slide-6:checked ~ .slider__footer > .slider__text {
   margin-left: calc(var(--margin-left-text) * 5);
+}
+
+@media (max-width: 768px) {
+  .slider {
+    width: 80%;
+  }
+
+  .slider__footer {
+    padding: 0;
+    flex-wrap: wrap-reverse;
+    justify-content: center;
+  }
+
+  .slider__controls {
+    margin: 2rem 0;
+  }
+
+  .slider__control-item > span {
+    padding: 0;
+  }
 }
