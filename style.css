@@ -1,5 +1,8 @@
 :root {
   --margin-left-slide: -100%;
+
+  --active-color-control: khaki;
+  --color-control: peru;
 }
 
 * {
@@ -13,10 +16,6 @@ html {
   font-family: Verdana, sans-serif;
 }
 
-.slider__radio {
-  display: none;
-}
-
 main {
   height: 100vh;
   width: 100vw;
@@ -24,6 +23,10 @@ main {
   justify-content: center;
   align-items: center;
   overflow: hidden;
+}
+
+.slider > input {
+  display: none;
 }
 
 .slider {
@@ -43,16 +46,50 @@ main {
   width: 100%;
 }
 
+/* ------ Slider Footer ------ */
+
+.slider__footer {
+  padding: 1rem 0;
+  display: flex;
+  justify-content: space-between;
+}
 
 .slider__control-item {
-  width: 20px;
-  height: 20px;
+  width: 1.8rem;
+  height: 1.8rem;
+  margin: 0.25rem;
   display: inline-block;
-  border: 3px solid red;
+  border: 0.3rem solid var(--color-control);
   border-radius: 50%;
-  background: yellow;
-  cursor: pointer
+  background-color: var(--color-control);
+  cursor: pointer;
 }
+
+.slider__control-item > span {
+  padding: 1.25rem 1rem;
+  display: inline-block;
+}
+
+.slider__control-item > span:hover {
+  cursor: pointer;
+}
+
+.slider__control-item:hover {
+  border-color: var(--active-color-control);
+  background-color: var(--active-color-control);
+  transition: all 0.3s;
+}
+
+#slide-1:checked ~ .slider__footer > .slider__controls >*:nth-child(1),
+#slide-2:checked ~ .slider__footer > .slider__controls >*:nth-child(2),
+#slide-3:checked ~ .slider__footer > .slider__controls >*:nth-child(3),
+#slide-4:checked ~ .slider__footer > .slider__controls >*:nth-child(4),
+#slide-5:checked ~ .slider__footer > .slider__controls >*:nth-child(5),
+#slide-6:checked ~ .slider__footer > .slider__controls >*:nth-child(6) {
+  background: none;
+}
+
+/* Change image */
 
 #slide-2:checked ~ .slider__images {
   margin-left: var(--margin-left-slide);
