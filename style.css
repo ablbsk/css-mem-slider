@@ -1,5 +1,8 @@
 :root {
-  --margin-left-slide: -100%;
+  --margin-left-image: -100%;
+  --margin-left-text: -45rem; /* margin-left-text = slider (max-width) */
+
+  --slide-transition: all 2s;
 
   --active-color-control: khaki;
   --color-control: peru;
@@ -35,14 +38,14 @@ main {
 
 .slider {
   width: 40%;
-  min-width: 25rem;
+  min-width: 30rem;
   max-width: 45rem;
   overflow: hidden;
 }
 
 .slider__images {
   display: flex;
-  transition: all 2s;
+  transition: var(--slide-transition);
   width: 100%;
 }
 
@@ -56,7 +59,34 @@ main {
   padding: 1rem 0;
   display: flex;
   justify-content: space-between;
+  overflow: hidden;
 }
+
+/* ------ Slider Footer (Text) ------ */
+
+.slider__text {
+  display: flex;
+  flex-shrink: 50000;
+  transition: var(--slide-transition);
+  overflow: hidden;
+}
+
+.slider__text > div {
+  display: flex;
+}
+
+.slider__text-item {
+  width: 25rem;
+  margin-right: 20rem;
+
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: var(--color-control);
+
+  white-space: nowrap;
+}
+
+/* ------ Slider Footer (Controls) ------ */
 
 .slider__control-item {
   width: 1.8rem;
@@ -96,21 +126,43 @@ main {
 /* Change image */
 
 #slide-2:checked ~ .slider__images {
-  margin-left: var(--margin-left-slide);
+  margin-left: var(--margin-left-image);
 }
 
 #slide-3:checked ~ .slider__images {
-  margin-left: calc(var(--margin-left-slide) * 2);
+  margin-left: calc(var(--margin-left-image) * 2);
 }
 
 #slide-4:checked ~ .slider__images {
-  margin-left: calc(var(--margin-left-slide) * 3);
+  margin-left: calc(var(--margin-left-image) * 3);
 }
 
 #slide-5:checked ~ .slider__images {
-  margin-left: calc(var(--margin-left-slide) * 4);
+  margin-left: calc(var(--margin-left-image) * 4);
 }
 
 #slide-6:checked ~ .slider__images {
-  margin-left: calc(var(--margin-left-slide) * 5);
+  margin-left: calc(var(--margin-left-image) * 5);
+}
+
+/* Change text */
+
+#slide-2:checked ~ .slider__footer > .slider__text {
+  margin-left: var(--margin-left-text);
+}
+
+#slide-3:checked ~ .slider__footer > .slider__text {
+  margin-left: calc(var(--margin-left-text) * 2);
+}
+
+#slide-4:checked ~ .slider__footer > .slider__text {
+  margin-left: calc(var(--margin-left-text) * 3);
+}
+
+#slide-5:checked ~ .slider__footer > .slider__text {
+  margin-left: calc(var(--margin-left-text) * 4);
+}
+
+#slide-6:checked ~ .slider__footer > .slider__text {
+  margin-left: calc(var(--margin-left-text) * 5);
 }
